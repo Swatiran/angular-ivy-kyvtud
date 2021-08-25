@@ -74,5 +74,9 @@ ul {
   padding-right: 17px;
 }
 p {
-  margin: 0;;
+  margin: 0;
+}
+#myForm:invalid .add {
+  background: darkgray;
+  background-image: none;
 }

@@ -1,6 +1,6 @@
 import { Component, OnInit, VERSION, ViewChild } from '@angular/core';
 import { AppService } from './app.service';
-// import cardData from 'src/assets/cardDetails.json';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'my-app',
@@ -8,9 +8,8 @@ import { AppService } from './app.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  constructor(private service: AppService) {
+  constructor(private service: AppService, private builder: FormBuilder) {
     this.thisYear = new Date().getFullYear();
-    
   }
 
   thisYear: any;
@@ -41,6 +40,7 @@ export class AppComponent implements OnInit {
   cvv: String = '';
   mon: String = '';
   year: String = '';
+  myForm: FormGroup;
 
   openModal(value) {
     if (value == 'add') {
@@ -95,11 +95,20 @@ export class AppComponent implements OnInit {
     inp.style.paddingRight = '70px';
 
     document.getElementById('number').addEventListener('input', e => {
-      (<HTMLInputElement>e.target).value = (<HTMLInputElement>e.target).value.replace(/[^\dA-Z]/g, '').replace(/(.{4})/g, '$1 ').trim();
+      (<HTMLInputElement>e.target).value = (<HTMLInputElement>e.target).value
+        .replace(/[^\dA-Z]/g, '')
+        .replace(/(.{4})/g, '$1 ')
+        .trim();
     });
   }
 
   ngOnInit() {
+    this.myForm = this.builder.group({
+      number: ['', Validators.required],
+      mon: ['', Validators.required],
+      year: ['', Validators.required],
+      cvv: ['', Validators.required]
+    });
     this.service.getJSON().subscribe(data => {
       this.dataList = data;
     });
