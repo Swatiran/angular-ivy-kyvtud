@@ -18,7 +18,7 @@ export class AppComponent implements OnInit {
 
   dataList: any = [
     {
-      id:1,
+      id: 1,
       number: '4143520336522305',
       src: 'assets/mastercard.svg',
       month: '04',
@@ -26,7 +26,7 @@ export class AppComponent implements OnInit {
       cvv: '123'
     },
     {
-      id:2,
+      id: 2,
       number: '5129236298535441',
       src: 'assets/visa.svg',
       month: '05',
@@ -34,34 +34,65 @@ export class AppComponent implements OnInit {
       cvv: '456'
     }
   ];
-  display: any = 'none';
-  yearList:any = [];
-  monthList:any = ['01','02','03','04','05','06','07','08','09','10','11','12'];
-  cNum:String = "";
-  cvv: String = "";
-  mon:String = "";
-  year:String = "";
+  displayadd: any = 'none';
+  displayrem: any = 'none';
+  yearList: any = [];
+  monthList: any = [
+    '01',
+    '02',
+    '03',
+    '04',
+    '05',
+    '06',
+    '07',
+    '08',
+    '09',
+    '10',
+    '11',
+    '12'
+  ];
+  cNum: String = '';
+  cvv: String = '';
+  mon: String = '';
+  year: String = '';
 
-  openModal() {
-    this.display = 'block';
+  openModal(value) {
+    if (value == 'add') {
+      this.displayadd = 'block';
+    }
+    else if(value=='rem') {
+      this.displayrem ='block';
+    }
   }
   onCloseHandled() {
-    this.display = 'none';
+    this.displayadd = 'none';
+    this.displayrem = 'none';
   }
   addCard() {
     this.dataList.push({
-      'id':this.dataList.length + 1,
-      'number': this.cNum,
-      'src': 'assets/mastercard.svg',
-      'month': this.mon,
-      'year': this.year,
-      'cvv': this.cvv
-    })
+      id: this.dataList.length + 1,
+      number: this.cNum,
+      src: 'assets/mastercard.svg',
+      month: this.mon,
+      year: this.year,
+      cvv: this.cvv
+    });
     console.log(this.dataList);
+  }
+  index:any = '';
+  removeCard() {
+    console.log(this.index);
+    this.dataList.forEach(element => {
+      if (this.index == element.id) {
+        const index = this.dataList.indexOf(this.index);
+        this.dataList.splice(index, 1);
+        this.index = '';
+      }
+    });
   }
 
   ngOnInit() {
-    for(let i=0;i<15;i++) {
+    for (let i = 0; i < 15; i++) {
       this.yearList.push(this.thisYear);
       this.thisYear++;
     }
