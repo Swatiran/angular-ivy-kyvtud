@@ -30,31 +30,30 @@
               <button type="button" class="close" aria-label="Close" (click)="onCloseHandled()"><span aria-hidden="true">&times;</span></button>
             </span>
             <h4 class="modal-title">Add New Card</h4>
-            <form>
               <label class="label" for="number">Enter Debit/Credit Card Number</label>
-              <input type="text" class="inp" id="number" placeholder="Enter Debit/Credit Card Number">
+              <input type="text" maxlength="16" pattern="\d{16}" class="inp" id="number" placeholder="Enter Debit/Credit Card Number" [(ngModel)]="cNum">
+              <br>
               <div class="row">
                 <div class="col-md-4">
                   <label class="label" for="mm">Expiry Month</label>
-                  <select class="inp" id="mm">
+                  <select class="inp" id="mm" [(ngModel)]="mon">
                   <option value="" selected disabled hidden>MM</option>
                   <option *ngFor="let data of monthList">{{data}}</option>
                 </select>
                 </div>
                 <div class="col-md-4">
                   <label class="label" for="yy">Expiry Year</label>
-                  <select class="inp" id="yy">
+                  <select class="inp" id="yy" [(ngModel)]="year">
                   <option value="" selected disabled hidden>YY</option>
                   <option *ngFor="let data of yearList">{{data}}</option>
                 </select>
                 </div>
                 <div class="col-md-4">
                   <label class="label" for="number">CVV</label>
-                  <input type="text" class="inp" id="number" placeholder="CVV">
+                  <input type="text" maxlength="3" pattern="\d{3}" class="inp" id="number" placeholder="CVV" [(ngModel)]="cvv">
                 </div>
               </div>
-              <button type="button" class="addButton2" (click)="onCloseHandled()" >Add Card</button>
-            </form>
+              <button type="button" class="addButton2" (click)="onCloseHandled();addCard()" >Add Card</button>
 
           </div>
           <!-- <div class="modal-footer">

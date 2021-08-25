@@ -18,23 +18,29 @@ export class AppComponent implements OnInit {
 
   dataList: any = [
     {
+      id:1,
       number: '4143520336522305',
       src: 'assets/mastercard.svg',
-      month: '',
-      year: '',
-      cvv: ''
+      month: '04',
+      year: '2023',
+      cvv: '123'
     },
     {
+      id:2,
       number: '5129236298535441',
       src: 'assets/visa.svg',
-      month: '',
-      year: '',
-      cvv: ''
+      month: '05',
+      year: '2022',
+      cvv: '456'
     }
   ];
   display: any = 'none';
   yearList:any = [];
-  monthList:any = ['01','02','03','04','05','06','07','08','09','10','11','12']
+  monthList:any = ['01','02','03','04','05','06','07','08','09','10','11','12'];
+  cNum:String = "";
+  cvv: String = "";
+  mon:String = "";
+  year:String = "";
 
   openModal() {
     this.display = 'block';
@@ -42,7 +48,17 @@ export class AppComponent implements OnInit {
   onCloseHandled() {
     this.display = 'none';
   }
-  addCard() {}
+  addCard() {
+    this.dataList.push({
+      'id':this.dataList.length + 1,
+      'number': this.cNum,
+      'src': 'assets/mastercard.svg',
+      'month': this.mon,
+      'year': this.year,
+      'cvv': this.cvv
+    })
+    console.log(this.dataList);
+  }
 
   ngOnInit() {
     for(let i=0;i<15;i++) {
