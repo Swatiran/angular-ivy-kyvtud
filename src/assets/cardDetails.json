@@ -1,7 +1,7 @@
 [
   {
     "id": 1,
-    "number": "4143520336522305",
+    "number": "4143 5203 3652 2305",
     "src": "assets/mastercard.svg",
     "month": "04",
     "year": "2023",
@@ -9,7 +9,7 @@
   },
   {
     "id": 2,
-    "number": "5129236298535441",
+    "number": "5129 2362 9853 5441",
     "src": "assets/visa.svg",
     "month": "05",
     "year": "2022",

@@ -69,3 +69,10 @@ ul {
   border: 1px solid darkgray;
   padding: 1%;
 }
+#cvv {
+  background: white url(assets/cvv.svg) right no-repeat;
+  padding-right: 17px;
+}
+p {
+  margin: 0;;
+}

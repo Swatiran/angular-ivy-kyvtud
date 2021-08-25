@@ -10,6 +10,7 @@ import { AppService } from './app.service';
 export class AppComponent implements OnInit {
   constructor(private service: AppService) {
     this.thisYear = new Date().getFullYear();
+    
   }
 
   thisYear: any;
@@ -92,6 +93,10 @@ export class AppComponent implements OnInit {
     let inp: any = document.getElementById('number');
     inp.style.background = 'white url(' + logo + ') right no-repeat';
     inp.style.paddingRight = '70px';
+
+    document.getElementById('number').addEventListener('input', e => {
+      (<HTMLInputElement>e.target).value = (<HTMLInputElement>e.target).value.replace(/[^\dA-Z]/g, '').replace(/(.{4})/g, '$1 ').trim();
+    });
   }
 
   ngOnInit() {
