@@ -1,0 +1,66 @@
+.cardContainer {
+  min-height: 400px;
+  height: auto;
+  padding: 2%;
+  padding-left: 5%;
+}
+ul {
+  list-style: none;
+  padding-left: 0;
+}
+.cardItems {
+  padding: 2%;
+}
+.cardIcon {
+  position: absolute;
+  right: 2%;
+  border: 1px solid lightgray;
+}
+.add {
+  background-color: #08aade;
+  background-image: linear-gradient(to right, #08aade, #080890);
+  height: 45px;
+  border: none;
+  color: white;
+  border-radius: 7px;
+  font-weight: bold;
+}
+.addButton2 {
+  background-color: #08aade;
+  height: 45px;
+  width: 40%;
+  border: none;
+  color: white;
+  border-radius: 7px;
+  font-weight: bold;
+}
+.remove {
+  border: 1px solid #08aade;
+  color: #08aade;
+  background: white;
+  border-radius: 5px;
+  width: 40%;
+  height: 30%;
+  /* font-weight: bold; */
+}
+.modal{
+  background: rgba(0,0,0, .5)
+}
+.modal-body {
+  padding: 5%;
+}
+.close {
+  float: right;
+  background: none;
+  border: none;
+  position: absolute;
+  right: 0;
+  top: 0;
+  font-size: 40px;
+}
+.label {
+
+}
+.inp {
+  width: 100%;
+}

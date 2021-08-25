@@ -1,0 +1,66 @@
+<div class="container-fluid">
+  <br>
+  <p>My Wallet</p>
+  <div class="card cardContainer">
+    <ul>
+      <li *ngFor="let item of dataList">
+        <div class="row">
+          <div class="col-md-8">
+            <div class="card cardItems">
+              <p>Debit Card Number <span class="cardIcon"><img [src]="item.src"></span></p>
+              <p>{{item.number}}</p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <button class="btn btn-lg btn-outline-primary">Remove</button>
+          </div>
+        </div>
+        <br>
+      </li>
+    </ul>
+    <button class="col-md-4 add" type="button" (click)="openModal()">Add New Card</button>
+    <div class="modal" tabindex="-1" role="dialog" [ngStyle]="{'display':display}">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <!-- <div class="modal-header">
+            
+          </div> -->
+          <div class="modal-body">
+            <span>
+              <button type="button" class="close" aria-label="Close" (click)="onCloseHandled()"><span aria-hidden="true">&times;</span></button>
+            </span>
+            <h4 class="modal-title">Add New Card</h4>
+            <form>
+              <label class="label" for="number">Enter Debit/Credit Card Number</label>
+              <input type="text" class="inp" id="number" placeholder="Enter Debit/Credit Card Number">
+              <div class="row">
+                <div class="col-md-4">
+                  <label class="label" for="mm">Expiry Month</label>
+                  <select class="inp" id="mm">
+                  <option value="" selected disabled hidden>MM</option>
+                  <option *ngFor="let data of monthList">{{data}}</option>
+                </select>
+                </div>
+                <div class="col-md-4">
+                  <label class="label" for="yy">Expiry Year</label>
+                  <select class="inp" id="yy">
+                  <option value="" selected disabled hidden>YY</option>
+                  <option *ngFor="let data of yearList">{{data}}</option>
+                </select>
+                </div>
+                <div class="col-md-4">
+                  <label class="label" for="number">CVV</label>
+                  <input type="text" class="inp" id="number" placeholder="CVV">
+                </div>
+              </div>
+              <button type="button" class="addButton2" (click)="onCloseHandled()" >Add Card</button>
+            </form>
+
+          </div>
+          <!-- <div class="modal-footer">
+          </div> -->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
