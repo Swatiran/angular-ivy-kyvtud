@@ -32,7 +32,7 @@
             </span>
             <h4 class="modal-title">Add New Card</h4>
               <label class="label" for="number">Enter Debit/Credit Card Number</label>
-              <input type="text" maxlength="16" pattern="\d{16}" class="inp" id="number" placeholder="Enter Debit/Credit Card Number" [(ngModel)]="cNum">
+              <input type="text" maxlength="16" pattern="\d{16}" class="inp" id="number" placeholder="Enter Debit/Credit Card Number" [(ngModel)]="cNum" (input)="changelogo()">
               <br>
               <div class="row">
                 <div class="col-md-4">

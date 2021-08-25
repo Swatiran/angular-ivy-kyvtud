@@ -13,7 +13,7 @@ export class AppComponent implements OnInit {
   thisYear: any;
   visa: String = 'assets/visa.svg';
   master: String = 'assets/mastercard.svg';
-  american: String = '';
+  american: String = 'assets/amex.svg';
   // visa: String = '';
 
   dataList: any = [
@@ -59,9 +59,8 @@ export class AppComponent implements OnInit {
   openModal(value) {
     if (value == 'add') {
       this.displayadd = 'block';
-    }
-    else if(value=='rem') {
-      this.displayrem ='block';
+    } else if (value == 'rem') {
+      this.displayrem = 'block';
     }
   }
   onCloseHandled() {
@@ -72,14 +71,18 @@ export class AppComponent implements OnInit {
     this.dataList.push({
       id: this.dataList.length + 1,
       number: this.cNum,
-      src: 'assets/mastercard.svg',
+      src: this.logo,
       month: this.mon,
       year: this.year,
       cvv: this.cvv
     });
-    console.log(this.dataList);
+    this.logo = '';
+    this.cNum = '';
+    this.mon = '';
+    this.year = '';
+    this.cvv = '';
   }
-  index:any = '';
+  index: any = '';
   removeCard() {
     console.log(this.index);
     this.dataList.forEach(element => {
@@ -89,6 +92,21 @@ export class AppComponent implements OnInit {
         this.index = '';
       }
     });
+  }
+  logo:any ='';
+  changelogo() {
+    let logo: any = '';
+    if (this.cNum[0] == '4') {
+      logo = this.visa;
+    } else if (this.cNum[0] == '5') {
+      logo = this.master;
+    } else if (this.cNum[0] == '3') {
+      logo = this.american;
+    }
+    this.logo = logo;
+    let inp: any = document.getElementById('number');
+    inp.style.background = 'white url(' + logo + ') right no-repeat';
+    inp.style.paddingRight = '70px';
   }
 
   ngOnInit() {
