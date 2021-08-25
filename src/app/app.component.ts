@@ -1,4 +1,6 @@
 import { Component, OnInit, VERSION, ViewChild } from '@angular/core';
+import { AppService } from './app.service';
+// import cardData from 'src/assets/cardDetails.json';
 
 @Component({
   selector: 'my-app',
@@ -6,7 +8,7 @@ import { Component, OnInit, VERSION, ViewChild } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  constructor() {
+  constructor(private service: AppService) {
     this.thisYear = new Date().getFullYear();
   }
 
@@ -16,24 +18,7 @@ export class AppComponent implements OnInit {
   american: String = 'assets/amex.svg';
   // visa: String = '';
 
-  dataList: any = [
-    {
-      id: 1,
-      number: '4143520336522305',
-      src: 'assets/mastercard.svg',
-      month: '04',
-      year: '2023',
-      cvv: '123'
-    },
-    {
-      id: 2,
-      number: '5129236298535441',
-      src: 'assets/visa.svg',
-      month: '05',
-      year: '2022',
-      cvv: '456'
-    }
-  ];
+  dataList: any = [];
   displayadd: any = 'none';
   displayrem: any = 'none';
   yearList: any = [];
@@ -93,7 +78,7 @@ export class AppComponent implements OnInit {
       }
     });
   }
-  logo:any ='';
+  logo: any = '';
   changelogo() {
     let logo: any = '';
     if (this.cNum[0] == '4') {
@@ -110,6 +95,9 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.service.getJSON().subscribe(data => {
+      this.dataList = data;
+    });
     for (let i = 0; i < 15; i++) {
       this.yearList.push(this.thisYear);
       this.thisYear++;

@@ -43,8 +43,8 @@ ul {
   height: 30%;
   /* font-weight: bold; */
 }
-.modal{
-  background: rgba(0,0,0, .5)
+.modal {
+  background: rgba(0, 0, 0, 0.5);
 }
 .modal-body {
   padding: 5%;
@@ -59,8 +59,13 @@ ul {
   font-size: 40px;
 }
 .label {
-
+  font-size: 80%;
+  color: darkgray;
 }
 .inp {
   width: 100%;
+  margin-bottom: 2%;
+  color: darkgray;
+  border: 1px solid darkgray;
+  padding: 1%;
 }
