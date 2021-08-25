@@ -28,38 +28,36 @@
               <button type="button" class="close" aria-label="Close" (click)="onCloseHandled()"><span aria-hidden="true">&times;</span></button>
             </span>
             <h5 class="modal-title">Add New Card</h5>
-            <form id="myForm" (ngSubmit)="addCard()" [formGroup]="myForm">
+            <form id="myForm" [formGroup]="myForm">
               <div style="padding:4%">
-                <div class="">
+                <div class="form-group">
                   <label class="label" for="number">Enter Debit/Credit Card Number</label>
-                  <input type="text" maxlength="19" pattern="\d{19}" class="inp " formControlName="number" id="number" placeholder="Enter Debit/Credit Card Number" required [(ngModel)]="cNum"  (input)="changelogo()">
+                  <input class="form-control" type="text" maxlength="19" class="inp " formControlName="number" id="number" placeholder="Enter Debit/Credit Card Number" required [(ngModel)]="cNum"  (input)="changelogo()">
                 </div>
                 <br>
                 <div class="row">
-                  <div class="col-md-4 ">
+                  <div class="col-md-4 form-group">
                     <label class="label" for="mm">Expiry Month</label>
-                    <select class="inp " id="mm" [(ngModel)]="mon" formControlName="mon"  required>
+                    <select class="form-control" class="inp " id="mm" [(ngModel)]="mon" formControlName="mon"  required>
                   <option value="" selected disabled hidden>MM</option>
                   <option *ngFor="let data of monthList">{{data}}</option>
                 </select>
                   </div>
-                  <div class="col-md-4">
+                  <div class="col-md-4 form-group">
                     <label class="label" for="yy">Expiry Year</label>
-                    <select class="inp" id="yy" [(ngModel)]="year" formControlName="year"  required>
+                    <select class="form-control" class="inp" id="yy" [(ngModel)]="year" formControlName="year"  required>
                   <option value="" selected disabled hidden>YY</option>
                   <option *ngFor="let data of yearList">{{data}}</option>
                 </select>
                   </div>
-                  <div class="col-md-4">
+                  <div class="col-md-4 form-group">
                     <label class="label" for="cvv">CVV</label>
-                    <input type="text" maxlength="3" pattern="\d{3}" class="inp" formControlName="cvv" id="cvv" placeholder="CVV"  required [(ngModel)]="cvv" >
+                    <input class="form-control" type="text" maxlength="3" minlength="3" class="inp" formControlName="cvv" id="cvv" placeholder="CVV" [(ngModel)]="cvv" required>
                   </div>
                 </div>
               </div>
               <br>
-              <button type="submit" class="col-md-6 add" (click)="onCloseHandled()" [disabled]="myForm.invalid">Add Card</button>
-              <p>Form value: {{ myForm.value | json }}</p>
-              <p>Form status: {{ myForm.status | json }}</p>
+              <button type="submit" class="col-md-6 add" (click)="onCloseHandled();addCard()"[disabled]="myForm.invalid">Add Card</button>
             </form>
           </div>
         </div>

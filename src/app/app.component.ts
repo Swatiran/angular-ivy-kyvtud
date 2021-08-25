@@ -70,7 +70,6 @@ export class AppComponent implements OnInit {
   }
   index: any = '';
   removeCard() {
-    console.log(this.index);
     this.dataList.forEach(element => {
       if (this.index == element.id) {
         const index = this.dataList.indexOf(this.index);
@@ -109,6 +108,7 @@ export class AppComponent implements OnInit {
       year: ['', Validators.required],
       cvv: ['', Validators.required]
     });
+
     this.service.getJSON().subscribe(data => {
       this.dataList = data;
     });
