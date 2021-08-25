@@ -2,6 +2,8 @@
   <br>
   <h5>My Wallet</h5>
   <div class="card cardContainer">
+
+    <!-- cardView List -->
     <ul>
       <li *ngFor="let item of dataList">
         <div class="row">
@@ -18,15 +20,16 @@
         <br>
       </li>
     </ul>
+
+    <!-- button to add new card -->
     <button class="col-md-4 add" type="button" (click)="openModal('add')">Add New Card</button>
+
     <!-- add modal -->
     <div class="modal" tabindex="-1" role="dialog" [ngStyle]="{'display':displayadd}">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-body">
-            <span>
-              <button type="button" class="close" aria-label="Close" (click)="onCloseHandled()"><span aria-hidden="true">&times;</span></button>
-            </span>
+            <button type="button" class="close" aria-label="Close" (click)="onCloseHandled()"><span aria-hidden="true">&times;</span></button>
             <h5 class="modal-title">Add New Card</h5>
             <form id="myForm" [formGroup]="myForm">
               <div style="padding:4%">
@@ -64,13 +67,11 @@
       </div>
     </div>
   </div>
+  
   <!-- remove modal -->
   <div class="modal" tabindex="-1" role="dialog" [ngStyle]="{'display':displayrem}">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
-        <!-- <div class="modal-header">
-          
-        </div> -->
         <div class="modal-body">
           <span>
             <button type="button" class="close" aria-label="Close" (click)="onCloseHandled()"><span aria-hidden="true">&times;</span></button>
